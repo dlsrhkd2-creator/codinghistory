@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>반응형 웹사이트 개발 연습 단계1</title>
+  <style>
+    /* 기존 방법 : Float 사용 */
+    .old-container {
+      width: 100%;
+      background: #f0f0f0;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+
+      .old-box {
+        width: 30%;
+        height: 100px;
+        background: #ff6b6b;
+        color: white;
+        text-align: center;
+        line-height: 100px;
+        float: left;
+        margin-right: 5%;
+      }
+
+      .old-box:last-child {
+        margin-right: 0;
+      }
+
+      /* cleafix 볶음밥쓰 */
+      .old-container::after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      /* 새로운 방법: flexbox 사용 */
+      .new-container {
+        display: flex;
+        gap: 20px;
+        background: #f0f0f0;
+        padding: 20px
+      }
+      
+      .new-box {
+        flex: 1;
+        height: 100px;
+        background: #4ecdc4;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+  </style>
+</head>
+<body>
+  <h2>기존 방법 (float)</h2>
+  <div class="old-container">
+  <div class="old-box">박스 1</div>
+  <div class="old-box">박스 2</div>
+  <div class="old-box">박스 3</div>
+  </div>
+
+  <h2>새로운 방법 (flexbox)</h2>
+  <div class="new-container"><section></section>
+    <div class="new-box">박스 1</div> 
+    <div class="new-box">박스 2</div> 
+    <div class="new-box">박스 3</div> 
+  </div>
+</body>
+</html>
